@@ -7,6 +7,9 @@ const APIkey = '4bdebe3f6b67aa9a49266cc15d9aae01'
         const jsonDados = await responseDados.json()
         
         princContainer.classList.add('moreHeight')
+        mostrarClima.classList.add('slideIn')
+        mostrarCidade.classList.add('slideIn')
+
         mostrarClima.innerText = jsonDados.main.temp
         mostrarCidade.innerText = jsonDados.name
         

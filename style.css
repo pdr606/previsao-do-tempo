@@ -27,6 +27,20 @@ body{
     }
   }
 
+@keyframes slide-in {
+from {
+    transform: translateX(-10%);
+}
+to {
+    transform: translateX(0);
+}
+}
+
+.slideIn{
+    animation: slide-in forwards;
+    animation-duration: 0.5s;
+}
+
 .moreHeight{
     animation: grow forwards;
     animation-duration: 1s;
