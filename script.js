@@ -116,7 +116,6 @@ function minhaFunc(){
 // Ativar minha função ao clique.
 
 btnPesquisa.addEventListener('click', minhaFunc)
-btnPesquisa.addEventListener('touchend', minhaFunc)
 
 
 
