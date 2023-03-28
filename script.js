@@ -108,6 +108,9 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
 function minhaFunc(){
     cidade = cidadePesquisa.value.trim()
     princContainer.classList.remove('errorHeight')
+    slideInSelec.forEach((elemento) =>{
+      elemento.classList.remove('slideIn')
+    })
     puxarDados(cidade)
     
     
