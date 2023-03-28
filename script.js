@@ -113,10 +113,19 @@ function minhaFunc(){
     
 }
 
+
+// Fechar o teclado
+
+function fecharTeclado(){
+    document.activeElement.blur();
+}
 // Ativar minha função ao clique.
 
 btnPesquisa.addEventListener('click', minhaFunc)
-btnPesquisa.addEventListener('touchend', minhaFunc)
+btnPesquisa.addEventListener('touchend', function(){
+    minhaFunc()
+    fecharTeclado()
+})
 cidadePesquisa.addEventListener('keydown', function(event){
     if (event.keyCode === 13){
         minhaFunc()
