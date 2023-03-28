@@ -20,6 +20,26 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
     try{
         const responseDados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${APIkey}&lang=pt_br`)
         const jsonDados = await responseDados.json()
+
+        slideInSelec.forEach(elemento => {
+          setTimeout(() => {
+            elemento.classList.toggle('slideIn');
+            setTimeout(() => {
+              elemento.classList.toggle('slideIn');
+            }, 1000); // remova a classe após 1 segundo
+          }, 50); // adicione a classe após 2 segundos
+        });
+
+        princContainer.classList.add('moreHeight')
+
+        mostrarClima.classList.add('clima')
+        mostrarClima.innerText = parseInt(jsonDados.main.temp)
+        mostrarCidade.innerText = jsonDados.name
+
+        moreClima.style.display = 'flex';
+        mostrarHumidade.innerText = `${jsonDados.main.humidity} %`
+        mostrarVento.innerText = `${parseInt(jsonDados.wind.speed)} Km/h`
+
         
         switch(jsonDados.weather[0].main){
             case 'Clear':
@@ -47,27 +67,8 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
                     
         }
 
-       
-        slideInSelec.forEach(elemento => {
-            setTimeout(() => {
-              elemento.classList.toggle('slideIn');
-              setTimeout(() => {
-                elemento.classList.toggle('slideIn');
-              }, 1000); // remova a classe após 1 segundo
-            }, 50); // adicione a classe após 2 segundos
-          });
 
-
-        
-        princContainer.classList.add('moreHeight')
-
-        mostrarClima.classList.add('clima')
-        mostrarClima.innerText = parseInt(jsonDados.main.temp)
-        mostrarCidade.innerText = jsonDados.name
-
-        moreClima.style.display = 'flex';
-        mostrarHumidade.innerText = `${jsonDados.main.humidity} %`
-        mostrarVento.innerText = `${parseInt(jsonDados.wind.speed)} Km/h`
+      
 
     } catch(erro){
         princContainer.classList.add('errorHeight')
