@@ -8,7 +8,10 @@ const mostrarClima = document.getElementById('climaSelec')
 const mostrarCidade = document.getElementById('cidade')
 const princContainer = document.getElementById('princ')
 const imagemClima = document.querySelector('#imagem img')
-const slideInSelec = document.querySelectorAll('#imagem img, #cidade, #climaSelec')
+const slideInSelec = document.querySelectorAll('#imagem img, #cidade, #climaSelec, .parteFinal')
+const moreClima = document.querySelector('.parteFinal')
+const mostrarHumidade = document.getElementById('humidade')
+const mostrarVento = document.getElementById('vento')
 
 // Função Principal //
 
@@ -16,6 +19,7 @@ const slideInSelec = document.querySelectorAll('#imagem img, #cidade, #climaSele
     try{
         const responseDados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${APIkey}&lang=pt_br`)
         const jsonDados = await responseDados.json()
+        console.log(jsonDados)
         
         switch(jsonDados.weather[0].main){
             case 'Clear':
@@ -57,12 +61,13 @@ const slideInSelec = document.querySelectorAll('#imagem img, #cidade, #climaSele
         
         princContainer.classList.add('moreHeight')
 
-
         mostrarClima.classList.add('clima')
         mostrarClima.innerText = parseInt(jsonDados.main.temp)
         mostrarCidade.innerText = jsonDados.name
-        
-        console.log(slideInSelec)
+
+        moreClima.style.display = 'flex';
+        mostrarHumidade.innerText = `${jsonDados.main.humidity} %`
+        mostrarVento.innerText = `${parseInt(jsonDados.wind.speed)} Km/h`
 
     } catch(erro){
         princContainer.classList.add('errorHeight')
@@ -87,6 +92,8 @@ const slideInSelec = document.querySelectorAll('#imagem img, #cidade, #climaSele
         imagemClima.src = "imagens/404.png"
         mostrarCidade.innerText = 'Error 404';
         mostrarClima.innerText = '';
+        moreClima.style.display = 'none';
+        
     }
 
     

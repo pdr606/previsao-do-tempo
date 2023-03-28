@@ -102,7 +102,7 @@ to {
 }
 
 .clima{
-    padding-top: 10%;
+    padding-top: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,6 +136,42 @@ to {
     animation-duration: 2s;
 }
 
+.parteFinal{
+    display: none;
+    align-items: center;
+    padding-top: 3%;
+}
+
+.left, .right{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+}
+
+.icon{
+    align-items: center;
+    justify-content: center;
+    display: flex column;
+    display: flex;
+}
+
+.texto{
+    margin-left: 3%;
+}
+
+.texto div{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(56, 47, 47);
+}
+
+.texto p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    color: black;
+}
 
 
 
