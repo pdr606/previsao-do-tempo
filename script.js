@@ -12,6 +12,7 @@ const slideInSelec = document.querySelectorAll('#imagem img, #cidade, #climaSele
 const moreClima = document.querySelector('.parteFinal')
 const mostrarHumidade = document.getElementById('humidade')
 const mostrarVento = document.getElementById('vento')
+const inputPesquisa = document.querySelector('#inputPesquisa');
 
 // Função Principal //
 
@@ -115,4 +116,11 @@ function minhaFunc(){
 // Ativar minha função ao clique.
 
 btnPesquisa.addEventListener('click', minhaFunc)
+btnPesquisa.addEventListener('touchend', minhaFunc)
+cidadePesquisa.addEventListener('keydown', function(event){
+    if (event.keyCode === 13){
+        minhaFunc()
+    }
+})
+
 
