@@ -26,8 +26,8 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
             elemento.classList.toggle('slideIn');
             setTimeout(() => {
               elemento.classList.toggle('slideIn');
-            }, 1000); // remova a classe após 1 segundo
-          }, 50); // adicione a classe após 2 segundos
+            }, 800); // remova a classe após 1 segundo
+          }, 0); // adicione a classe após 2 segundos
         });
 
         princContainer.classList.add('moreHeight')
