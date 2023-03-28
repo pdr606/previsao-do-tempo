@@ -126,10 +126,5 @@ btnPesquisa.addEventListener('touchend', function(){
     minhaFunc()
     fecharTeclado()
 })
-cidadePesquisa.addEventListener('keydown', function(event){
-    if (event.keyCode === 13){
-        minhaFunc()
-    }
-})
 
 
