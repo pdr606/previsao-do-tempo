@@ -20,7 +20,6 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
     try{
         const responseDados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${APIkey}&lang=pt_br`)
         const jsonDados = await responseDados.json()
-        console.log(jsonDados)
         
         switch(jsonDados.weather[0].main){
             case 'Clear':
