@@ -21,15 +21,10 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
         const responseDados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${APIkey}&lang=pt_br`)
         const jsonDados = await responseDados.json()
 
-        slideInSelec.forEach(elemento => {
-          setTimeout(() => {
-            elemento.classList.toggle('slideIn');
-            setTimeout(() => {
-              elemento.classList.toggle('slideIn');
-            }, 800); // remova a classe após 1 segundo
-          }, 0); // adicione a classe após 2 segundos
-        });
-
+        
+        slideInSelec.forEach((elemento) =>{
+          elemento.classList.add('slideIn')
+        })
         princContainer.classList.add('moreHeight')
 
         mostrarClima.classList.add('clima')
@@ -73,19 +68,14 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
     } catch(erro){
         princContainer.classList.add('errorHeight')
         mostrarClima.classList.remove('clima')
-        slideInSelec.forEach(elemento => {
-            setTimeout(() => {
-              elemento.classList.toggle('slideIn');
-              setTimeout(() => {
-                elemento.classList.toggle('slideIn');
-              }, 1000); // remova a classe após 1 segundo
-            }, 50); // adicione a classe após 2 segundos
-          });
+        slideInSelec.forEach((elemento) =>{
+          elemento.classList.add('slideIn')
+        })
 
 
         setTimeout(() =>{
             princContainer.classList.add('errorHeight')
-        },50)
+        },0)
 
 
 
