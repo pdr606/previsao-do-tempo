@@ -73,9 +73,9 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
         })
 
 
-        setTimeout(() =>{
-            princContainer.classList.add('errorHeight')
-        },0)
+        
+          princContainer.classList.add('errorHeight')
+        
 
 
 
