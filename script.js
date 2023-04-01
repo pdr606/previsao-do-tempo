@@ -100,6 +100,7 @@ function minhaFunc(){
     princContainer.classList.remove('errorHeight')
     slideInSelec.forEach((elemento) =>{
       elemento.classList.remove('slideIn')
+      imagemClima.src = ""
     })
     puxarDados(cidade)
     
