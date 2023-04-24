@@ -13,13 +13,19 @@ const moreClima = document.querySelector('.parteFinal')
 const mostrarHumidade = document.getElementById('humidade')
 const mostrarVento = document.getElementById('vento')
 const inputPesquisa = document.querySelector('#inputPesquisa');
+const carregando = document.querySelector('.carregando')
 
 // Função Principal //
 
+let apagar;
+
  async function puxarDados(cidade){
     try{
+        apagar = true;
+        carregando.style.display = 'block';
         const responseDados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&units=metric&appid=${APIkey}&lang=pt_br`)
         const jsonDados = await responseDados.json()
+        carregando.style.display = 'none';
 
         
         slideInSelec.forEach((elemento) =>{
@@ -72,14 +78,8 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
           elemento.classList.add('slideIn')
         })
 
-
-        
           princContainer.classList.add('errorHeight')
         
-
-
-
-
         imagemClima.src = "imagens/404.png"
         mostrarCidade.innerText = 'Error 404';
         mostrarClima.innerText = '';
@@ -87,6 +87,7 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
         
     }
 
+        apagar = false;
     
 
 
@@ -96,6 +97,13 @@ const inputPesquisa = document.querySelector('#inputPesquisa');
 // Pegar o valor do input (cidade)
 
 function minhaFunc(){
+    if (apagar == false){
+        imagemClima.src = '';
+        mostrarCidade.innerText = ''
+        mostrarClima.innerText = ''
+        moreClima.style.display = 'none'
+        mostrarClima.classList.remove('clima')
+    }
     cidade = cidadePesquisa.value.trim()
     princContainer.classList.remove('errorHeight')
     slideInSelec.forEach((elemento) =>{
